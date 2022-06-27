@@ -9,10 +9,15 @@ courseRouter.get("/courses", validateToken, courseController.readAll);
 courseRouter.post(
   "/courses",
   validateToken,
-  verifyPermission,
   validateSchema(courseSchema),
+  verifyPermission,
   courseController.createCourse
 );
+courseRouter.post("/courses/:id/users",
+//validateToken,
+//verifyPermission,
+courseController.userCourses
+) 
 courseRouter.patch(
   "/courses/:id",
   validateToken,

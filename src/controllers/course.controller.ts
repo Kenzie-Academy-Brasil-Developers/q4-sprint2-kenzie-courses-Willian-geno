@@ -11,6 +11,10 @@ class CourseController {
     const courses = await courseService.readAllCourses(req);
     return res.status(200).json(courses);
   };
+  userCourses = async(req: Request, res:Response) => {
+    const course = await courseService.userCourses(req)
+    return res.status(200).json(course)
+  } 
 
   updateCourse = async (req: Request, res: Response) => {
     const course = await courseService.updateCourse(req);
